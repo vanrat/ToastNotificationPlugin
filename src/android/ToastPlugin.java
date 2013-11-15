@@ -19,7 +19,7 @@ public class ToastPlugin extends CordovaPlugin {
     private Toast toast = null;
 
     @Override
-    public PluginResult execute(String action, JSONArray args, String callbackId) {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
         Log.d(TAG, action);
 
         if (action.equals(CANCEL_ACTION)) {
@@ -32,8 +32,10 @@ public class ToastPlugin extends CordovaPlugin {
             try {
                 message = args.getString(TOAST_MESSAGE_INDEX);
             } catch (JSONException e) {
-                Log.e(TAG, "Required parameter 'Toast Message' missing");
-                return new PluginResult(Status.JSON_EXCEPTION);
+               e.printStackTrace();
+               Log.e(TAG, "Required parameter 'Toast Message' missing");
+			   callbackContext.error("Required parameter 'Toast Message' missing");
+			   return false;            	                
             }
 
             if (action.equals(LONG_TOAST_ACTION)) {
@@ -42,8 +44,9 @@ public class ToastPlugin extends CordovaPlugin {
                 showToast(message, Toast.LENGTH_SHORT);
             }
         }
+		callbackContext.success();
+		return true;     
 
-        return new PluginResult(Status.OK);
     }
 
     private void cancelToast() {

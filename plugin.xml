@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin 
+    xmlns="http://www.phonegap.com/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    id="com.happy.plugins.ToastPlugin" 
+    version="1.0.0">
+    <name>Toasty</name>
+    <description>Toast Notification Plugin</description>
+    <license>MIT</license>
+    <keywords>Happy things Group</keywords>     
+    <js-module src="www/phonegap-toast.js" name="Toasty">
+        <clobbers target="toast" />
+    </js-module>
+    <platform name="android">                        
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Toasty">
+                <param name="android-package" value="com.happy.plugins.ToastPlugin"/>
+            </feature>
+        </config-file>        
+        <source-file src="src/android/ToastPlugin.java" target-dir="src/com/happy/plugins" />        
+    </platform>
+</plugin>

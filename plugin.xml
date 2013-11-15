@@ -8,12 +8,12 @@
     <description>Toast Notification Plugin</description>
     <license>MIT</license>
     <keywords>Happy things Group</keywords>     
-    <js-module src="www/phonegap-toast.js" name="Toasty">
-        <clobbers target="toast" />
+    <js-module src="www/phonegap-toast.js" name="ToastPlugin">
+        <clobbers target="ToastPlugin" />
     </js-module>
     <platform name="android">                        
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="Toasty">
+            <feature name="ToastPlugin">
                 <param name="android-package" value="com.happy.plugins.ToastPlugin"/>
             </feature>
         </config-file>        

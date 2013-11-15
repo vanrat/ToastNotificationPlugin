@@ -15,7 +15,7 @@ module.exports = {
 };
 */
 
-cordova.define("ToastPlugin", function(require, exports, module) {
+cordova.define("toastPlugin", function(require, exports, module) {
     var exec = require('cordova/exec');
     
     var ToastPlugin = function() {};
@@ -53,6 +53,6 @@ cordova.define("ToastPlugin", function(require, exports, module) {
 if (!window.plugins) {
     window.plugins = {};
 }
-if (!window.plugins.ToastPlugin) {
-    window.plugins.ToastPlugin = cordova.require("ToastPlugin");
+if (!window.plugins.toastPlugin) {
+    window.plugins.toastPlugin = cordova.require("toastPlugin");
 }

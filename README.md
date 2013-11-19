@@ -1,14 +1,18 @@
 Toasty - PhoneGap Toast Notification Plugin
 ===========================================
+Modified by vanrat 
+Added Cordova 3.x supports
+
+
 
 Shows an Android Toast Notification
 
-* toast.showShort(message);
-* toast.showLong(message);
+* window.plugins.toastPlugin.showShort(message);
+* window.plugins.toastPlugin.showLong(message);
 
 Cancel an Android Toast Notification
 
-* toast.cancel();
+* window.plugins.toastPlugin.cancel();
 
 Supported Platforms
 --------------------
@@ -16,15 +20,11 @@ Supported Platforms
 
 Adding Toasty to your project
 ------------------------------
+using cordova-cli
 
-These instructions assume your project is using PhoneGap-2.8+
-
-    $ plugman --platform android --project /path/to/your/project --plugin /path/to/toasty
-    
-or if you're using cordova-cli
-
-    $ cordova plugin install /path/to/toasty
+   * cordova plugin install https://github.com/vanrat/ToastNotificationPlugin
 
 Once the the plugin is installed, toast will be available on the document object. There is no need to modify your javascript imports.
     
-    toast.showLong("hello, world");
+    window.plugins.toastPlugin.showShort('this is test message');
+    window.plugins.toastPlugin.showLong('this is test message');
